@@ -44,6 +44,7 @@ export const WordsPullUp = ({ text, className = "", showAsterisk = false, style 
 /* ---------------- Hero ---------------- */
 const navItems = [
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Work", href: "#work" },
   { label: "Process", href: "#process" },
   { label: "Resume", href: "#resume" },
@@ -139,6 +140,14 @@ export const Hero = () => {
                   <ArrowRight className="h-4 w-4 text-[#E1E0CC]" />
                 </span>
               </motion.a>
+
+              <a
+                href="#skills"
+                className="inline-flex items-center gap-2 self-start text-xs font-medium uppercase tracking-[0.18em] text-[#E1E0CC]/70 transition-colors hover:text-[#E1E0CC] sm:text-sm"
+              >
+                Jump to skills
+                <span aria-hidden="true">↓</span>
+              </a>
             </div>
           </div>
         </div>
