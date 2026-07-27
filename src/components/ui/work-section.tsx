@@ -4,7 +4,6 @@ import { ShaderAnimation } from "./shader-animation";
 const anton = Anton({ subsets: ["latin"], weight: "400" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
-const BG = "oklch(0.11 0.004 40)";
 const ACCENT = "oklch(0.62 0.22 27)";
 const WHITE = "#fff";
 const GRAY_LIGHT = "oklch(0.82 0.005 90)";
