@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- marquee disabled below, kept for later use
 import MarqueeAlongSvgPath from "@/components/ui/marquee-along-svg-path";
 
 function Reveal({
@@ -110,6 +111,7 @@ interface Logo {
   icon: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- marquee disabled below, kept for later use
 const LOGOS: Logo[] = [
   { name: "Java", icon: "java/java-original" },
   { name: "Python", icon: "python/python-original" },
@@ -126,6 +128,7 @@ const LOGOS: Logo[] = [
   { name: "Git", icon: "git/git-original" },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- marquee disabled below, kept for later use
 function LogoChip({ logo }: { logo: Logo }) {
   return (
     <div title={logo.name} className="h-full w-12 duration-300 ease-in-out hover:scale-150 sm:w-14">
@@ -140,6 +143,7 @@ function LogoChip({ logo }: { logo: Logo }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- marquee disabled below, kept for later use
 const LOGO_WAVE_PATH =
   "M1 209.434C58.5872 255.935 387.926 325.938 482.583 209.434C600.905 63.8051 525.516 -43.2211 427.332 19.9613C329.149 83.1436 352.902 242.723 515.041 267.302C644.752 286.966 943.56 181.94 995 156.5";
 
