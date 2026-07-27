@@ -1,5 +1,4 @@
 import { Anton, Space_Grotesk } from "next/font/google";
-import { ShaderAnimation } from "./shader-animation";
 
 const anton = Anton({ subsets: ["latin"], weight: "400" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -59,10 +58,6 @@ const PROJECTS: Project[] = [
 export function WorkSection() {
   return (
     <div className={`${grotesk.className} relative w-full overflow-hidden`}>
-      <div className="absolute inset-0 h-full w-full">
-        <ShaderAnimation />
-      </div>
-      <div className="relative z-10 w-full">
       {/* Hero */}
       <div className="relative h-[560px] sm:h-[680px] lg:h-[760px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -329,7 +324,6 @@ export function WorkSection() {
         >
           hello@portfolio.dev
         </a>
-      </div>
       </div>
     </div>
   );
