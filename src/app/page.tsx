@@ -1,5 +1,5 @@
 import { Hero } from "@/components/ui/hero";
-import { AboutKinetic } from "@/components/ui/about-kinetic";
+import { AboutSection } from "@/components/ui/about-section";
 import { ProcessPage } from "@/components/ui/process-page";
 import { SkillsSection } from "@/components/ui/skills-section";
 import { WorkSection } from "@/components/ui/work-section";
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <AboutKinetic />
+      <AboutSection />
       <ProcessPage />
       <SkillsSection />
       <WorkSection />

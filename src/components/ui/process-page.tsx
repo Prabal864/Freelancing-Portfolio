@@ -82,7 +82,7 @@ export function ProcessPage() {
               A considered process that brings architecture, engineering discipline, and craft together to build systems with clarity and lasting value.
             </div>
           </div>
-          <div data-reveal style={{ textAlign: "right" }}>
+          <div data-reveal style={{ textAlign: "right", marginTop: -18 }}>
             <div style={{ fontSize: "clamp(36px,6vw,60px)", fontWeight: 800, color: "#1c1c1c", letterSpacing: "0.02em" }}>SYSTEMS</div>
             <div style={{ fontSize: 22, fontWeight: 800, color: "#d8d8d8", letterSpacing: "0.04em", marginTop: 6 }}>DELIVERY</div>
           </div>
