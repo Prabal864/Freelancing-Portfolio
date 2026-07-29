@@ -14,7 +14,7 @@ export function FloatingPaths({ position, color, count = 14 }: { position: numbe
             684 - i * 5 * position
         } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
         color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-        width: 0.5 + i * 0.03,
+        width: 1.5 + i * 0.06,
     }));
 
     return (
@@ -33,11 +33,11 @@ export function FloatingPaths({ position, color, count = 14 }: { position: numbe
                         d={path.d}
                         stroke="currentColor"
                         strokeWidth={path.width}
-                        strokeOpacity={0.1 + path.id * 0.03}
-                        initial={{ pathLength: 0.3, opacity: 0.6 }}
+                        strokeOpacity={0.3 + path.id * 0.035}
+                        initial={{ pathLength: 0.3, opacity: 0.7 }}
                         animate={{
                             pathLength: 1,
-                            opacity: [0.3, 0.6, 0.3],
+                            opacity: [0.6, 0.95, 0.6],
                             pathOffset: [0, 1, 0],
                         }}
                         transition={{

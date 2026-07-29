@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react"
-import { ArrowUpRight, Check, Send } from "lucide-react"
+import { ArrowUpRight, Check, Send, Calendar, Video, Clock, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -23,12 +23,17 @@ export function LetsWorkTogether() {
   useEffect(() => {
     const el = bgRef.current
     if (!el) return
+    let isInitial = true
     let timeoutId: ReturnType<typeof setTimeout>
     const observer = new ResizeObserver(() => {
+      if (isInitial) {
+        isInitial = false
+        return
+      }
       clearTimeout(timeoutId)
       timeoutId = setTimeout(() => {
         window.dispatchEvent(new Event("resize"))
-      }, 200)
+      }, 150)
     })
     observer.observe(el)
     return () => {
@@ -41,6 +46,7 @@ export function LetsWorkTogether() {
   const [isClicked, setIsClicked] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [contactMode, setContactMode] = useState<"form" | "call">("form")
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -96,9 +102,15 @@ export function LetsWorkTogether() {
   ]
 
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center px-4 sm:px-6 py-4 overflow-hidden">
-      {/* Animated Shader Background */}
-      <div ref={bgRef} className="absolute inset-0 z-0 h-full w-full overflow-hidden pointer-events-none">
+    <section id="contact" className="relative flex min-h-screen w-full items-center justify-center px-4 sm:px-6 py-4 overflow-hidden">
+      {/* Animated Shader Background with instant CSS gradient fallback to eliminate load delay */}
+      <div
+        ref={bgRef}
+        className="absolute inset-0 z-0 h-full w-full overflow-hidden pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at 30% 70%, #5606ff 0%, #000000 75%), radial-gradient(circle at 80% 25%, #fe8989 0%, transparent 60%), #000000",
+        }}
+      >
         <ShaderGradientCanvas
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none" }}
           pointerEvents="none"
@@ -268,7 +280,102 @@ export function LetsWorkTogether() {
             </p>
           </div>
 
-          {isSubmitted ? (
+          {/* Mode Switcher between Inquiry Form and Discovery Call */}
+          <div className="flex items-center justify-center gap-1.5 p-1.5 bg-black/60 backdrop-blur-2xl border border-white/20 rounded-full w-fit shadow-lg my-1">
+            <button
+              type="button"
+              onClick={() => setContactMode("form")}
+              className={`flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                contactMode === "form"
+                  ? "bg-white text-black shadow-md scale-[1.02]"
+                  : "text-white/75 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <Send className="size-3 sm:size-3.5" />
+              <span>Project Inquiry</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setContactMode("call")}
+              className={`flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                contactMode === "call"
+                  ? "bg-white text-black shadow-md scale-[1.02]"
+                  : "text-white/75 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <Calendar className={`size-3 sm:size-3.5 ${contactMode === "call" ? "text-emerald-600" : "text-emerald-400"}`} />
+              <span>Book Discovery Call</span>
+            </button>
+          </div>
+
+          {contactMode === "call" ? (
+            <div className="space-y-5 text-left w-full bg-black/55 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.6)] transition-all duration-300">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/15 pb-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="inline-flex size-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-400">15-30 Minute Strategy Session</span>
+                  </div>
+                  <h4 className="text-2xl sm:text-3xl font-light tracking-tight text-white">
+                    Technical Discovery Call
+                  </h4>
+                </div>
+                <div className="flex sm:flex-col items-center sm:items-end gap-3 sm:gap-1 text-white/85 text-xs sm:text-sm">
+                  <span className="font-bold text-white flex items-center gap-1.5">
+                    <Video className="size-3.5 text-blue-400" /> Google Meet / Zoom
+                  </span>
+                  <span className="opacity-75 flex items-center gap-1">
+                    <Clock className="size-3 text-emerald-400" /> 100% Free Consultation
+                  </span>
+                </div>
+              </div>
+
+              <div className="space-y-3 text-white/85 text-xs sm:text-sm leading-relaxed">
+                <p>
+                  Skip the long back-and-forth emails and jump directly into a structured technical discussion. We will evaluate your system architecture, discuss scope feasibility, and map out clear deployment milestones.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                  <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/15 text-xs">
+                    <span className="flex size-6 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold shrink-0">1</span>
+                    <span className="text-white/95 font-medium">Architecture &amp; Tech Stack recommendations</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/15 text-xs">
+                    <span className="flex size-6 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold shrink-0">2</span>
+                    <span className="text-white/95 font-medium">Scope breakdown &amp; milestone roadmap</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/15 text-xs">
+                    <span className="flex size-6 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold shrink-0">3</span>
+                    <span className="text-white/95 font-medium">Feasibility &amp; transparent budget pricing</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 border border-white/15 text-xs">
+                    <span className="flex size-6 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold shrink-0">4</span>
+                    <span className="text-white/95 font-medium">Zero sales pressure — actionable insights</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <a
+                  href="https://cal.com/prabal-singh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-white text-black hover:bg-white/90 font-bold h-11 sm:h-12 rounded-xl transition-all duration-300 shadow-lg hover:shadow-white/20 hover:scale-[1.02] text-xs sm:text-sm tracking-widest uppercase flex items-center justify-center gap-2 cursor-pointer group/call no-underline"
+                >
+                  <Calendar className="size-4 text-emerald-600 transition-transform group-hover/call:scale-110" />
+                  <span>Schedule on Cal.com</span>
+                  <ArrowUpRight className="size-4 transition-transform group-hover/call:translate-x-0.5 group-hover/call:-translate-y-0.5" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setContactMode("form")}
+                  className="px-5 bg-white/10 text-white hover:bg-white/20 font-bold h-11 sm:h-12 rounded-xl border border-white/25 transition-all duration-300 text-xs tracking-widest uppercase flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <MessageSquare className="size-3.5 opacity-80" />
+                  <span>Prefer typing? Write a note</span>
+                </button>
+              </div>
+            </div>
+          ) : isSubmitted ? (
             <div className="flex flex-col items-center gap-3 py-8 text-center bg-black/50 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 w-full shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
               <div className="flex size-14 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/20 text-emerald-300">
                 <Check className="size-7" />

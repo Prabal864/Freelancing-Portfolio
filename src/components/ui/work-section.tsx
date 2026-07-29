@@ -12,7 +12,6 @@ const GRAY_DIMMER = "oklch(0.55 0.01 90)";
 const GRAY_FAINT = "oklch(0.45 0.01 90)";
 const GRAY_BODY = "oklch(0.72 0.01 90)";
 const GREEN_DOT = "oklch(0.75 0.19 145)";
-const BORDER = "oklch(0.26 0.01 40)";
 
 const HERO_IMG =
   "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=80";
@@ -57,7 +56,7 @@ const PROJECTS: Project[] = [
 
 export function WorkSection() {
   return (
-    <div className={`${grotesk.className} relative w-full overflow-hidden`}>
+    <div id="work" className={`${grotesk.className} relative w-full overflow-hidden`}>
       {/* Hero */}
       <div className="relative h-[560px] sm:h-[680px] lg:h-[760px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -306,25 +305,6 @@ export function WorkSection() {
         />
       </div>
 
-      {/* Closing CTA */}
-      <div
-        className="flex flex-col gap-6 border-t px-6 py-14 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-[70px]"
-        style={{ borderColor: BORDER }}
-      >
-        <h3
-          className={`${anton.className} m-0 uppercase`}
-          style={{ color: WHITE, fontSize: "clamp(2rem, 6vw, 4.5rem)" }}
-        >
-          Let&apos;s talk ↘
-        </h3>
-        <a
-          href="mailto:hello@portfolio.dev"
-          className="inline-block self-start px-8 py-5 text-[13px] font-semibold sm:self-auto"
-          style={{ background: ACCENT, color: WHITE, letterSpacing: "2px" }}
-        >
-          hello@portfolio.dev
-        </a>
-      </div>
     </div>
   );
 }

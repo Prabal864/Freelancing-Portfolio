@@ -133,7 +133,7 @@ export function ProcessPage() {
       </section>
 
       {/* LIGHT SECTION */}
-      <div id="contact" data-reveal-group style={{ position: "relative", padding: "clamp(40px,8vw,64px) clamp(24px,5vw,64px)", background: "#e9e5dd", color: "#1a1816", boxSizing: "border-box", overflow: "hidden" }}>
+      <div id="process-details" data-reveal-group style={{ position: "relative", padding: "clamp(40px,8vw,64px) clamp(24px,5vw,64px)", background: "#e9e5dd", color: "#1a1816", boxSizing: "border-box", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", transform: "scaleX(-1)" }}>
           <FloatingPaths position={1} color="#1a1816" />
           <FloatingPaths position={-1} color="#1a1816" />

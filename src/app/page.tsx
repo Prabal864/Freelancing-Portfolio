@@ -6,6 +6,7 @@ import { WorkSection } from "@/components/ui/work-section";
 import FlowArt, { FlowSection } from "@/components/ui/story-scroll";
 import { ShaderAnimation } from "@/components/ui/shader-animation";
 import { LetsWorkTogether } from "@/components/ui/lets-work-section";
+import { FAQ, defaultCategories, defaultFaqData } from "@/components/ui/faq-tabs";
 
 export default function Home() {
   return (
@@ -61,52 +62,16 @@ export default function Home() {
           </div>
         </FlowSection>
 
-        <FlowSection aria-label="How I work" style={{ backgroundColor: "#F5F0E8", color: "#141210" }}>
-          <p className="text-xs font-bold uppercase tracking-[0.2em]">02 — How I work</p>
-          <hr className="my-[2vw] border-none border-t border-black/20" />
-          <div>
-            <h2 className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight">
-              Discover.
-              <br />
-              Define.
-              <br />
-              Ship.
-            </h2>
-          </div>
-          <hr className="my-[2vw] border-none border-t border-black/20" />
-          <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-            Four steps. No guesswork. Every engagement moves through the same considered process.
-          </p>
-          <hr className="my-[2vw] border-none border-t border-black/20" />
-          <div className="flex flex-wrap gap-[3vw]">
-            <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">01 — Discover</p>
-              <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Understanding the problem and where the system needs to scale.
-              </p>
-            </div>
-            <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">02 — Define</p>
-              <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Concrete architecture — data model, APIs, infrastructure.
-              </p>
-            </div>
-            <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">03 — Build</p>
-              <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Iterative, tested, deployed continuously — no big-bang releases.
-              </p>
-            </div>
-            <div className="min-w-[180px] flex-1">
-              <p className="mb-2 text-sm font-bold uppercase tracking-wider">04 — Ship &amp; Support</p>
-              <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-                Structured delivery, monitored in production, refined continuously.
-              </p>
-            </div>
-          </div>
+        <FlowSection aria-label="Frequently Asked Questions" style={{ backgroundColor: "#F5F0E8", color: "#141210" }} noPadding>
+          <FAQ
+            title="Frequently Asked Questions"
+            subtitle="Let's answer some questions"
+            categories={defaultCategories}
+            faqData={defaultFaqData}
+          />
         </FlowSection>
 
-        <FlowSection aria-label="Let's build" className="dark" style={{ backgroundColor: "#000", color: "#fff" }} noPadding>
+        <FlowSection id="contact" aria-label="Let's build" className="dark" style={{ backgroundColor: "#000", color: "#fff" }} noPadding>
           <LetsWorkTogether />
         </FlowSection>
       </FlowArt>
