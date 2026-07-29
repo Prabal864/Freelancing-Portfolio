@@ -17,6 +17,7 @@ export interface FlowSectionProps {
   children: React.ReactNode;
   id?: string;
   'aria-label'?: string;
+  noPadding?: boolean;
 }
 
 export const FlowSection: React.FC<FlowSectionProps> = ({
@@ -25,6 +26,7 @@ export const FlowSection: React.FC<FlowSectionProps> = ({
   children,
   id,
   'aria-label': ariaLabel,
+  noPadding = false,
 }) => (
   <section
     id={id}
@@ -35,7 +37,8 @@ export const FlowSection: React.FC<FlowSectionProps> = ({
     <div
       data-flow-inner
       className={cx(
-        'flow-art-container relative flex min-h-screen w-full flex-col justify-between gap-6 px-[4vw] pt-[clamp(2rem,8vw,4vw)] pb-[4vw]',
+        'flow-art-container relative flex min-h-screen w-full flex-col justify-between',
+        noPadding ? 'p-0 gap-0' : 'gap-6 px-[4vw] pt-[clamp(2rem,8vw,4vw)] pb-[4vw]',
         'will-change-transform',
       )}
       style={{ transformOrigin: 'bottom left', ...style }}

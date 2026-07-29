@@ -149,32 +149,7 @@ const LOGO_WAVE_PATH =
 
 export function SkillsSection() {
   return (
-    <section className="w-full overflow-hidden bg-[#0C0C0C] font-['Archivo',sans-serif] text-white">
-      {/* top bar */}
-      <div className="flex items-center justify-between px-6 py-5 font-['JetBrains_Mono',monospace] text-[10px] uppercase tracking-[0.18em] sm:px-10 sm:text-[11px]">
-        <div className="hidden gap-7 sm:flex">
-          <span>Stack</span>
-          <span>Systems</span>
-          <span>Writing</span>
-        </div>
-        <span className="font-['Anton',sans-serif] text-xl tracking-[0.02em]">&#9670;</span>
-        <div className="flex gap-5 sm:gap-7">
-          <span>About</span>
-          <span>Contact</span>
-        </div>
-      </div>
-
-      {/* heading */}
-      <Reveal className="grid grid-cols-1 gap-6 border-b border-[#222] px-6 pb-6 sm:grid-cols-[280px_1fr] sm:gap-9 sm:px-10">
-        <div className="font-['Anton',sans-serif] text-[36px] uppercase tracking-[0.01em] sm:text-[46px]">
-          Skills
-        </div>
-        <p className="m-0 max-w-[640px] font-['Anton',sans-serif] text-[13px] uppercase leading-[1.35] tracking-[0.02em] text-[#C9C6C1] sm:text-[15px]">
-          Backend systems, data platforms and applied AI. Six years of production work — every tool
-          below has been on call with me, and stayed.
-        </p>
-      </Reveal>
-
+    <section id="skills" className="w-full overflow-hidden bg-[#0C0C0C] font-['Archivo',sans-serif] text-white">
       {/* hero */}
       <Reveal className="relative bg-[#E8321C] pb-8 sm:pb-10">
         <div className="relative h-[260px] overflow-hidden sm:h-[420px] lg:h-[480px]">

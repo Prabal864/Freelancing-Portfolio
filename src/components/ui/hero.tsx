@@ -44,9 +44,9 @@ export const WordsPullUp = ({ text, className = "", showAsterisk = false, style 
 /* ---------------- Hero ---------------- */
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
   { label: "Process", href: "#process" },
-  { label: "Resume", href: "#resume" },
+  { label: "Skills", href: "#skills" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
 
